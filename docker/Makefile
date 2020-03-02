@@ -21,5 +21,5 @@ bash:
 
 x11:
 	xhost +
-	$(DOCKER) run -it -w /workspace --privileged --rm $(MOUNT_DIR) $(X11_DISPLAY) $(MOUNT_WEBCAM) --net=host $(IMAGE_NAME) bash
+	$(DOCKER) run -it -w /workspace --privileged --rm --shm-size 8G $(MOUNT_DIR) $(X11_DISPLAY) $(MOUNT_WEBCAM) --net=host $(IMAGE_NAME) bash
 	xhost -
