@@ -7,6 +7,10 @@ RUN apt-get update && \
     g++ \
     unzip \
     vim \
+    build-essential \
+    git \
+    wget \
+    cmake \
     libgtk2.0-dev \
     pkg-config \
     libcanberra-gtk-module \
@@ -20,7 +24,7 @@ RUN add-apt-repository ppa:deadsnakes/ppa && \
       python3.6 \
       python3.6-dev \
       python3-pip \
-      python3-tk \
+      python3.6-tk \
       python-pip
 
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.6 1 && \
@@ -63,8 +67,7 @@ RUN pip --no-cache-dir install decorator \
     pycocotools
 
 RUN pip install --no-cache-dir torch==1.1.0 
-RUN pip install --no-cache-dir torchvision==0.3.0
-RUN apt-get install -y build-essential git wget cmake
+RUN pip install --no-cache-dir torchvision==0.3.0 torchsummary
 RUN pip install git+https://github.com/yanfengliu/cython_bbox.git
 
 # ============= OpenCV =============
@@ -104,5 +107,4 @@ RUN wget https://github.com/opencv/opencv/archive/${OPENCV_VERSION}.zip \
   && rm -r opencv-${OPENCV_VERSION}
 
 # ============= OpenCV End =============
-RUN apt-get install -y python3.6-tk
 ENV PYTHONPATH /workspace:$PYTHONPATH
