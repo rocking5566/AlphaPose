@@ -66,8 +66,8 @@ RUN pip --no-cache-dir install decorator \
     Image==1.5.25 \
     pycocotools
 
-RUN pip install --no-cache-dir torch==1.1.0 
-RUN pip install --no-cache-dir torchvision==0.3.0 torchsummary
+RUN pip install --no-cache-dir torch==1.4.0 
+RUN pip install --no-cache-dir torchvision==0.5.0 torchsummary onnx==1.6.0
 RUN pip install git+https://github.com/yanfengliu/cython_bbox.git
 
 # ============= OpenCV =============
